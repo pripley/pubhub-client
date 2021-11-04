@@ -47,9 +47,7 @@ class Login extends Component {
           <Row className="justify-content-center">
             <Col md="9" lg="7" xl="6">
               <Form>
-                <div class="row" className="mb-2 pageheading">
-                  <div class="col-sm-12 btn btn-primary">Sign Up</div>
-                </div>                
+                <h2>Log in</h2>                
                 <InputGroup className="mb-3">
                   <Input
                     type="text"
