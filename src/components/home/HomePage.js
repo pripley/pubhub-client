@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Container } from "reactstrap";
+import Search from "../site/Search";
+import RecentActivity from "./RecentActivity";
 
 class HomePage extends Component {
   constructor(props) {
@@ -7,10 +10,21 @@ class HomePage extends Component {
   }
 
   render() {
+    const { token } = this.props;
     return (
-      <div>
-        <h1>Good afternoon, </h1>        
-      </div>
+      <>
+        <div className="search-container">
+          <Container>
+            <Search />
+          </Container>
+        </div>
+        <Container>
+          <h1>Good afternoon!</h1>
+          <RecentActivity token={token} />
+
+          {/* <h2>Beer of the Day</h2> */}
+        </Container>
+      </>
     );
   }
 }
