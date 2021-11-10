@@ -9,23 +9,23 @@ import {
   Button,
   Container,
 } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import SessionProvider from "../utils/SessionProvider";
+import Search from "./Search";
 
 class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       sessionToken: "",
+      redirect: null,
     };
   }
 
-  handleLogout() {
+  handleLogout = () => {
     localStorage.clear();
-    this.setState({
-      sessionToken: "",
-    });
-  }
+    this.setState({ sessionToken: "", redirect: "/" });
+  };
 
   componentDidMount() {
     const sessionToken = SessionProvider.getSessionToken();
@@ -38,14 +38,19 @@ class NavBar extends Component {
 
   render() {
     const { sessionToken } = this.state;
+    if (this.state.redirect) {
+      return <Redirect to={{ pathname: this.state.redirect }} />;
+    }
     return (
-      <Navbar>
-        <Container fluid>
+      <>
+        <Navbar>
           <NavbarBrand href="/">PubHub</NavbarBrand>
           <Nav className="justify-content-end">
             {sessionToken ? (
               <NavItem>
-                <NavLink onClick={this.handleLogout}>Logout</NavLink>
+                <NavLink onClick={this.handleLogout} href="/">
+                  Logout
+                </NavLink>
               </NavItem>
             ) : (
               <>
@@ -58,8 +63,8 @@ class NavBar extends Component {
               </>
             )}
           </Nav>
-        </Container>
-      </Navbar>
+        </Navbar>        
+      </>
     );
   }
 }
