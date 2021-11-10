@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Input, Button, Row, Col } from "reactstrap";
+import { Redirect } from "react-router-dom";
+
 class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = { brewery: [], query: "" };
+    this.state = { brewery: [], query: "", redirect: null };
   }
 
   handleChange = (e) => {
@@ -12,23 +14,24 @@ class Search extends Component {
 
   handleFetch = async (e) => {
     e.preventDefault();
-    let query = this.state.query
-    console.log(query);
+    let query = this.state.query;
     const url = `https://api.openbrewerydb.org/breweries/search?query=${query}`;
     try {
       const response = await fetch(url);
-      const jsonData = await response.json();
-      console.log(jsonData);
-      this.setState({
-        brewery: jsonData,
-      });
-      History.pushState("/")
+      const json = await response.json();
+      console.log(json);
+      this.setState({ brewery: json, redirect: "/search" });      
     } catch (e) {
       console.log(e);
     }
   };
 
   render() {
+    if (this.state.redirect) {
+      return (
+        <Redirect to={{pathname: this.state.redirect, state: {brewery: this.state.brewery}}}/>
+      );
+    }
     return (
       <div>
         <Row>
@@ -43,7 +46,7 @@ class Search extends Component {
             />
           </Col>
           <Col>
-            <Button onClick={this.handleFetch}>Brew Me!</Button>
+            <Button onClick={this.handleFetch}>Search</Button>
           </Col>
         </Row>
       </div>
