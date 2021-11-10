@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class BreweryCard extends Component {
+class BreweryGet extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -14,4 +14,4 @@ class BreweryCard extends Component {
     );
   }
 }
-export default BreweryCard;
+export default BreweryGet;
