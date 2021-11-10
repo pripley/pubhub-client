@@ -8,11 +8,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color:rgb(82, 82, 82)
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#main-container {
+  min-height: 100vh;
+  position: relative
 }
 
 .hero {
@@ -27,9 +33,22 @@ code {
   min-height: 40rem;
 }
 
+/* Fonts */
+
+
+
+/* Text Sizes */
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 2rem 0
+}
+
 .text_white {
   color:white
 }
+
+
 
 .center {
   display: flex;
@@ -37,27 +56,112 @@ code {
   align-items: center;   
 }
 
+.form-control:focus {
+  background-color: #fff;
+  border-color: #ebebeb;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgb(192 192 192 / 25%)
+}
+
+/* Search */
+
 .search {
   width: 40rem;
   border: none;
-  padding: 1rem;
+  padding: 1rem 2rem;
   border-radius: .75rem;
+  font-weight: bold;
 }
 
+.search-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../src/assets/images/search_background.jpg");
+  background-size: cover;
+  background-position: center 20%;
+  padding: 3rem;
+}
+
+.search-container .search {
+  padding: .5rem 1.5rem;
+  height: 2.75rem;
+}
+
+.search-results {
+  margin-top: 2rem;
+}
+
+.result {
+  padding: 2rem 0;
+  border-top: 1px solid #bfbfc7;
+}
+
+.result:first-child {
+  margin-top: 3rem
+}
+
+/* Buttons */
+
 .btn {
-  padding: 1rem;
+  padding: .5rem 2rem;
+  height: 2.75rem;
   border: none;
-  border-radius: .75rem;
+  border-radius: 3rem;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  background-color:rgb(235, 176, 14);
+}
+
+.btn-secondary:hover {
+  background-color:rgb(177, 133, 11)
 }
 
 .navbar {
   background-color: black;
 }
 
-footer {
-  background-color: #ebedf2;
-  min-height: 10rem;
-  padding: 2rem
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin: 0 1rem
+
 }
+
+.nav-link {
+  color:rgb(235, 176, 14);
+  font-weight: bold
+}
+
+.nav-link:hover, .nav-link:focus {
+  color:rgb(177, 133, 11)
+}
+
+
+
+/* Footer */
+
+footer {
+  background-color: #dbdbdb;
+  padding: 2rem 0 1rem
+}
+
+.footer-container {
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+}
+
+.responsible-message {
+  background-color: #ebebeb;
+  min-height: 4rem;
+  padding: 1rem;
+  color:rgba(161, 161, 161, 0.6);
+  font-size: 3rem;
+  font-weight: bold
+}
+
+
 
 
