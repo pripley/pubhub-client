@@ -29,7 +29,7 @@ class App extends React.Component {
     }
   }
 
-  updateToken(newToken) {
+  updateToken = (newToken) => {
     localStorage.setItem("token", newToken);
     this.setState({
       sessionToken: newToken,
@@ -39,34 +39,31 @@ class App extends React.Component {
   render() {
     const { sessionToken } = this.state;
     return (
-      <div>
+      <div id="main-container">
         <Router>
           <NavBar/>
           <Switch>
             <Route exact path="/">
-              {sessionToken === localStorage.getItem("token") ? (
+              {sessionToken ? (
                 <HomePage token={sessionToken} />
               ) : (
-                <LandingPage updateToken={this.updateToken} />
+                <LandingPage/>
               )}
             </Route>
-            <Route exact path="/brewery/:id">
-              <BreweryInfo />
+            <Route exact path="/brewery/:id" render={(breweryId) => <BreweryInfo {...breweryId} token={sessionToken}/>}>              
             </Route>
             <Route exact path="/users/:username">
-              <ViewUser />
+              <ViewUser token={sessionToken}/>
             </Route>
-            <Route exact path="/search">
-              <SearchResults />
-            </Route>
+            <Route exact path="/search" render={(brewery) => <SearchResults {...brewery} token={sessionToken}/>}/>
             <Route exact path="/profile">
               <Profile />
             </Route>
             <Route exact path="/login">
-              <Login />
+              <Login updateToken={this.updateToken}/>
             </Route>
             <Route exact path="/register">
-              <Register />
+              <Register updateToken={this.updateToken}/>
             </Route>
           </Switch>
           <Footer />
