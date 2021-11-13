@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Row, Col } from "reactstrap";
 import { Link, Redirect } from "react-router-dom";
 import BeerEdit from "./BeerEdit";
+import APIURL from '../../helpers/environment';
 
 class BeerGet extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class BeerGet extends Component {
     try {
       console.log(beer.id);
       console.log(token);
-      const response = await fetch(`http://localhost:3000/beer/${beer.id}`, {
+      const response = await fetch(`${APIURL}/beer/${beer.id}`, {
         method: "DELETE",
         headers: new Headers({
           "Content-Type": "application/json",
@@ -35,7 +36,7 @@ class BeerGet extends Component {
   handleFetchBeer = async () => {
     const { token } = this.props;
     try {
-      const response = await fetch("http://localhost:3000/beer/", {
+      const response = await fetch(`${APIURL}/beer/`, {
         method: "GET",
         headers: new Headers({
           "Content-Type": "application/json",
@@ -58,7 +59,7 @@ class BeerGet extends Component {
     console.log(breweryName);
     const { token } = this.props;
     try {
-      const response = await fetch("http://localhost:3000/brewery/", {
+      const response = await fetch(`${APIURL}/brewery/`, {
         method: "GET",
         headers: new Headers({
           "Content-Type": "application/json",

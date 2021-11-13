@@ -3,6 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import Search from "./Search";
 import profilePic from "../../assets/images/default-profile-pic.png";
 import { Link, Redirect } from "react-router-dom";
+import APIURL from '../../helpers/environment';
 
 class ViewUser extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class ViewUser extends Component {
     console.log(breweryName);
     const { token } = this.props;
     try {
-      const response = await fetch("http://localhost:3000/brewery/", {
+      const response = await fetch(`${APIURL}/brewery/`, {
         method: "GET",
         headers: new Headers({
           "Content-Type": "application/json",
@@ -46,7 +47,7 @@ class ViewUser extends Component {
   handleFetchUserBeer = async (userId) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/beer/user/${userId}`,
+        `${APIURL}/beer/user/${userId}`,
         {
           method: "GET",
           headers: new Headers({

@@ -3,6 +3,7 @@ import { Container, Button } from "reactstrap";
 import BeerSave from "../beer/BeerSave";
 import Search from "../site/Search";
 import BeerReviews from "../beer/BeerReviews";
+import APIURL from '../../helpers/environment';
 
 class BreweryInfo extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class BreweryInfo extends Component {
     console.log(breweryId);
     try {
       const response = await fetch(
-        `http://localhost:3000/brewery/${breweryId}`,
+        `${APIURL}/brewery/${breweryId}`,
         {
           method: "GET",
           headers: new Headers({

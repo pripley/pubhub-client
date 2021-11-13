@@ -9,6 +9,7 @@ import {
   Container,
 } from "reactstrap";
 import { Redirect } from "react-router-dom";
+import APIURL from '../../helpers/environment';
 
 class Login extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class Login extends Component {
         passwordhash: this.state.passwordhash,
       },
     };
-    fetch("http://localhost:3000/user/login/", {
+    fetch(`${APIURL}/user/login/`, {
       method: "post",
       headers: new Headers({
         "Content-Type": "application/json",

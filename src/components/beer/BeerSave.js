@@ -10,6 +10,7 @@ import {
   Input,
 } from "reactstrap";
 import { Redirect } from "react-router-dom";
+import APIURL from '../../helpers/environment';
 
 class BeerSave extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class BeerSave extends Component {
     };
     console.log(location);
     try {
-      const response = await fetch("http://localhost:3000/beer/", {
+      const response = await fetch(`${APIURL}/beer/`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: new Headers({

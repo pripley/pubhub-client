@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col } from "reactstrap";
 import { Link, Redirect } from "react-router-dom";
+import APIURL from '../../helpers/environment';
 
 class BeerReviews extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class BeerReviews extends Component {
     const { location } = this.props;
     try {
       const response = await fetch(
-        `http://localhost:3000/beer/location/${location}`,
+        `${APIURL}/beer/location/${location}`,
         {
           method: "GET",
           headers: new Headers({

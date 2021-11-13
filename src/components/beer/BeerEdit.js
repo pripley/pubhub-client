@@ -9,6 +9,7 @@ import {
   Input,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import APIURL from '../../helpers/environment';
 
 class BeerEdit extends Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class BeerEdit extends Component {
       },
     };
     try {
-      const response = await fetch(`http://localhost:3000/beer/${beer.id}`, {
+      const response = await fetch(`${APIURL}/beer/${beer.id}`, {
         method: "PUT",
         body: JSON.stringify(data),
         headers: new Headers({

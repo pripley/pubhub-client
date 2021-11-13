@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Input, InputGroup, Row, Col, Button, Form, Container } from "reactstrap";
 import { Redirect } from "react-router-dom";
+import APIURL from '../../helpers/environment';
 
 class Signup extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class Signup extends Component {
         username: this.state.username,
       } 
     }
-    fetch("http://localhost:3000/user/signup/", {
+    fetch(`${APIURL}/user/signup/`, {
       method: "post",
       headers: new Headers({
         "Content-Type": "application/json",

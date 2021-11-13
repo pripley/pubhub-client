@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
 import { Redirect } from "react-router-dom";
+import APIURL from '../../helpers/environment';
 
 class BrewerySave extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class BrewerySave extends Component {
       },
     }    
     try {
-      const response = await fetch("http://localhost:3000/brewery/", {
+      const response = await fetch(`${APIURL}/brewery/`, {
         method: "POST",        
         headers: new Headers({
           "Content-Type": "application/json",
