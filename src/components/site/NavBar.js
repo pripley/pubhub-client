@@ -44,7 +44,7 @@ class NavBar extends Component {
     return (
       <>
         <Navbar>
-          <NavbarBrand href="/">PubHub</NavbarBrand>
+          <NavbarBrand href="/">BrewHub</NavbarBrand>
           <Nav className="justify-content-end">
             {sessionToken ? (
               <NavItem>
