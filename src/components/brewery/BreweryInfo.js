@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Button } from "reactstrap";
 import BeerSave from "../beer/BeerSave";
 import Search from "../site/Search";
+import BeerReviews from "../beer/BeerReviews";
 
 class BreweryInfo extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class BreweryInfo extends Component {
     // console.log(this.props.location.state.breweryId)
   }
 
-  handleFetch = async (breweryId) => {
+  handleFetchBrewery = async (breweryId) => {
     const { token } = this.props;
     console.log(token);
     console.log(breweryId);
@@ -38,14 +39,17 @@ class BreweryInfo extends Component {
   };
 
   componentDidMount() {
-    this.handleFetch(this.props.location.state.breweryId);
+    this.handleFetchBrewery(this.props.location.state.breweryId);
   }
 
   render() {
     const { brewery } = this.state;
+
     if (brewery === null) {
       return null;
     }
+    const brewType =
+      brewery.type.charAt(0).toUpperCase() + brewery.type.slice(1);
     return (
       <>
         <div className="search-container">
@@ -55,17 +59,17 @@ class BreweryInfo extends Component {
         </div>
         <Container>
           <h1>{brewery.name}</h1>
-          <h3>{brewery.type}</h3>
+          <h3>{brewType}</h3>
           <h5>
-            {brewery.street}, {brewery.city},{" "}
-            {brewery.state} {brewery.zip}
+            {brewery.street}, {brewery.city}, {brewery.state} {brewery.zip}
           </h5>
           <br />
-          <BeerSave
-            open={this.open}
-            location={brewery.name}
-            token={this.props.token}
-          />
+          <BeerSave location={brewery.name} token={this.props.token} />
+          <div className="brewery-beer-activity-container">
+            <h4 className="weight-bold">Recent Check-Ins</h4>
+            <br/>
+            <BeerReviews location={brewery.name} token={this.props.token} />
+          </div>
         </Container>
       </>
     );
