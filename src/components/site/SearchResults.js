@@ -16,19 +16,20 @@ class SearchResults extends Component {
         
     const breweryList = () =>
     brewery.map((checkedBrewery, index) => {
+      const brewType = checkedBrewery.brewery_type.charAt(0).toUpperCase() + checkedBrewery.brewery_type.slice(1)
         return (
           <Container className="result">
             <Row>
-              <Col>
+              <Col xs="7">
                 <h2>{checkedBrewery.name}</h2>
                 <h5>
                   {checkedBrewery.street}, {checkedBrewery.city},{" "}
                   {checkedBrewery.state} {checkedBrewery.postal_code}
                 </h5>
               </Col>
-              <Col md="auto">
-                <h3>Brewery Type:</h3>
-                <h5>{checkedBrewery.brewery_type}</h5>
+              <Col xs="3">
+                <h5 className="weight-bold">Brewery Type:</h5>
+                <h5>{brewType}</h5>
               </Col>
               <Col xs lg="2">{token ? (<BrewerySave key={index} brewery={checkedBrewery} token={token}/>): ""}</Col>
             </Row>
