@@ -12,6 +12,7 @@ class BrewerySave extends Component {
   handleSaveBrewery = async (e) => {
     e.preventDefault();
     const { brewery, token } = this.props;
+    const brewType = brewery.brewery_type.charAt(0).toUpperCase() + brewery.brewery_type.slice(1)
     const data = {
       brewery: {
         name: brewery.name,
@@ -19,16 +20,9 @@ class BrewerySave extends Component {
         city: brewery.city,
         state: brewery.state,
         zip: brewery.postal_code,
-        type: brewery.brewery_type,
+        type: brewType,
       },
     }    
-    // console.log(brewery.name)    
-    // console.log(brewery.street)
-    // console.log(brewery.city)
-    // console.log(brewery.state)
-    // console.log(brewery.postal_code)
-    // console.log(brewery.brewery_type)
-    console.log(token)
     try {
       const response = await fetch("http://localhost:3000/brewery/", {
         method: "POST",        
