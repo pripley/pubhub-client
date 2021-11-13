@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
 html, body { height: 100% }
 
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color:rgb(82, 82, 82)
+  color:rgb(46, 46, 46)
 }
 
 code {
@@ -17,8 +20,10 @@ code {
 }
 
 #main-container {
+  display: flex;
   min-height: 100vh;
-  position: relative
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hero {
@@ -35,20 +40,50 @@ code {
 
 /* Fonts */
 
-
+a {
+  color: rgb(235, 176, 14);
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(177, 133, 11);
+  text-decoration: none;
+}
 
 /* Text Sizes */
 h1 {
+  font-family: 'Poppins', sans-serif;
   font-size: 3rem;
-  font-weight: bold;
-  margin: 2rem 0
+  font-weight: 600;
+  margin: 2rem 0;
+  color:rgb(27, 27, 27)
+}
+
+h2.title {
+  margin-bottom: 2rem;
+  font-weight: 600;
+  font-size: 2.6rem;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+
+h5 {
+  font-weight: 500;
 }
 
 .text_white {
   color:white
 }
 
-
+.weight-bold {
+  font-weight: 700;
+}
 
 .center {
   display: flex;
@@ -63,12 +98,27 @@ h1 {
   box-shadow: 0 0 0 0.25rem rgb(192 192 192 / 25%)
 }
 
+/* Modals */
+
+.modal-content {
+  border: none;
+  border-radius: 1rem;
+  outline: 0;
+  padding: 2rem;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 /* Search */
 
 .search {
   width: 40rem;
   border: none;
-  padding: 1rem 2rem;
+  padding: .5rem 1.5rem;
+  height: 2.75rem;
   border-radius: .75rem;
   font-weight: bold;
 }
@@ -138,7 +188,6 @@ h1 {
 }
 
 
-
 /* Footer */
 
 footer {
@@ -146,12 +195,12 @@ footer {
   padding: 2rem 0 1rem
 }
 
-.footer-container {
+/* .footer-container {
   position:absolute;
   left:0;
   bottom:0;
   right:0;
-}
+} */
 
 .responsible-message {
   background-color: #ebebeb;
@@ -159,7 +208,36 @@ footer {
   padding: 1rem;
   color:rgba(161, 161, 161, 0.6);
   font-size: 3rem;
-  font-weight: bold
+  font-weight: bold;
+  margin-top: 3rem;
+}
+
+/* Home Page */
+
+.beer-activity{  
+  padding-top: 1rem;
+  border-top: 1px solid #bfbfc7;
+}
+
+
+/* Brewery Page */
+
+.brewery-beer-activity-container {
+  margin-top: 4rem
+}
+
+.brewery-beer-activity{    
+  padding-top: 1rem;
+  border-top: 1px solid #bfbfc7;
+}
+
+
+/* View User */
+
+img { 
+  border-radius: 50%; 
+  max-width: 15rem;
+  max-height: 15rem;
 }
 
 
