@@ -1,25 +1,92 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import NavBar from "./components/site/NavBar";
+import LandingPage from "./components/landing/LandingPage";
+import HomePage from "./components/home/HomePage";
+import SearchResults from "./components/site/SearchResults";
+import BreweryInfo from "./components/brewery/BreweryInfo";
+import ViewUser from "./components/site/ViewUser";
+import Profile from "./components/site/Profile";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import Footer from "./components/site/Footer";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sessionToken: "",
+    };
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem("token")) {
+      this.setState({
+        sessionToken: localStorage.getItem("token"),
+      });
+    }
+  }
+
+  updateToken = (newToken) => {
+    localStorage.setItem("token", newToken);
+    this.setState({
+      sessionToken: newToken,
+    });
+  };
+
+  render() {
+    const { sessionToken } = this.state;
+    return (
+      <div id="main-container">
+        <div id="content-container">
+          <Router>
+            <NavBar />
+            <Switch>
+              <Route exact path="/">
+                {sessionToken ? (
+                  <HomePage token={sessionToken} />
+                ) : (
+                  <LandingPage />
+                )}
+              </Route>              
+              <Route
+                exact
+                path="/brewery/:id"
+                render={(breweryId) => (
+                  <BreweryInfo {...breweryId} token={sessionToken} />
+                )}
+              ></Route>
+              <Route exact path="/user/:id" render={(props) => (
+                <ViewUser id={props.match.params.id}/>
+              )}/>              
+              
+              <Route
+                exact
+                path="/search"
+                render={(brewery) => (
+                  <SearchResults {...brewery} token={sessionToken} />
+                )}
+              />
+              <Route exact path="/profile">
+                <Profile />
+              </Route>
+              <Route exact path="/login">
+                <Login updateToken={this.updateToken} />
+              </Route>
+              <Route exact path="/register">
+                <Register updateToken={this.updateToken} />
+              </Route>
+            </Switch>
+          </Router>
+        </div>
+        <div className="footer-container">
+          <Footer />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
