@@ -3,13 +3,12 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalTitle,
   ModalFooter,
   Button,
   InputGroup,
   Input,
 } from "reactstrap";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class BeerEdit extends Component {
   constructor(props) {
