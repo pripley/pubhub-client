@@ -10,6 +10,7 @@ import {
 } from "reactstrap";
 import { Redirect } from "react-router-dom";
 import APIURL from '../../helpers/environment';
+import NavBar from '../site/NavBar';
 
 class Login extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class Login extends Component {
     this.state = {
       email: "",
       passwordhash: "",
+      redirect: ""
     };
   }
 
@@ -38,7 +40,9 @@ class Login extends Component {
       .then((response) => response.json())
       .then((data) => {
         this.props.updateToken(data.sessionToken);
+        this.props.getFirstName(data.user.firstName);
         this.setState({ redirect: "/" });
+        
       });
   };
 
@@ -49,10 +53,12 @@ class Login extends Component {
       );
     }
     return (
+      <>
+      <NavBar/>
       <div className="app flex-row align-items-center">
         <Container>
           <Row className="justify-content-center">
-            <Col md="9" lg="7" xl="6">
+            <Col md="9" lg="7" xl="4">
               <Form>
                 <h1>Log in</h1>
                 <InputGroup className="mb-3">
@@ -81,6 +87,7 @@ class Login extends Component {
           </Row>
         </Container>
       </div>
+      </>
     );
   }
 }
