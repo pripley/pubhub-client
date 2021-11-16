@@ -1,17 +1,21 @@
 import React, { Component } from "react";
 import {
-  Collapse,
+  Row,
+  Col,
   Navbar,
   NavbarBrand,
   Nav,
   NavItem,
   NavLink,
-  Button,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
   Container,
 } from "reactstrap";
-import { Redirect } from "react-router-dom";
-import SessionProvider from "../utils/SessionProvider";
+import { Redirect, Link } from "react-router-dom";
 import Search from "./Search";
+import logo from "../../assets/images/brewpub_logo.svg";
 
 class NavBar extends Component {
   constructor(props) {
@@ -27,43 +31,66 @@ class NavBar extends Component {
     this.setState({ sessionToken: "", redirect: "/" });
   };
 
-  componentDidMount() {
-    const sessionToken = SessionProvider.getSessionToken();
-    if (sessionToken) {
-      this.setState({
-        sessionToken: sessionToken,
-      });
-    }
-  }
-
   render() {
-    const { sessionToken } = this.state;
+    const { token, firstName } = this.props;
+    console.log(token);
+    console.log(firstName);
     if (this.state.redirect) {
       return <Redirect to={{ pathname: this.state.redirect }} />;
     }
     return (
       <>
         <Navbar>
-          <NavbarBrand href="/">BrewHub</NavbarBrand>
-          <Nav className="justify-content-end">
-            {sessionToken ? (
-              <NavItem>
-                <NavLink onClick={this.handleLogout} href="/">
-                  Logout
-                </NavLink>
-              </NavItem>
-            ) : (
-              <>
-                <NavItem>
-                  <NavLink href="/login">Login</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="/register">Sign up</NavLink>
-                </NavItem>
-              </>
-            )}
-          </Nav>
-        </Navbar>        
+          <Container>
+            <Row>
+              <Col>
+                <NavbarBrand className="ms-0">
+                  <Link to="/">
+                    <img src={logo} alt="Brewpub logo" />
+                  </Link>
+                </NavbarBrand>
+              </Col>
+              <Col>
+                <Nav className="justify-content-end">
+                  {token ? (
+                    <>
+                      <UncontrolledDropdown inNavbar nav>
+                        <DropdownToggle caret nav>
+                          Hi, {firstName}
+                        </DropdownToggle>
+                        <DropdownMenu end>
+                          <DropdownItem className="small">
+                            <Link to="/profile">Profile</Link>
+                          </DropdownItem>
+                          <DropdownItem
+                            className="small"
+                            onClick={this.handleLogout}
+                            href="/"
+                          >
+                            Logout
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>
+                    </>
+                  ) : (
+                    <>
+                      <NavItem>
+                        <NavLink>
+                          <Link to="/login">Login</Link>
+                        </NavLink>
+                      </NavItem>
+                      <NavItem>
+                        <NavLink>
+                          <Link to="/register">Sign up</Link>
+                        </NavLink>
+                      </NavItem>
+                    </>
+                  )}
+                </Nav>
+              </Col>
+            </Row>
+          </Container>
+        </Navbar>
       </>
     );
   }

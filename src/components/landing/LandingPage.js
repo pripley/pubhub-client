@@ -1,17 +1,14 @@
 import React from "react";
-import BeerOfTheDay from "./BeerOfTheDay";
 import HeroSection from "./HeroSection";
 import { Container } from "reactstrap";
+import Features from "./Features";
 
 const LandingPage = () => {
-  return (    
-      <>
-        <HeroSection />
-        <Container>
-        <BeerOfTheDay />
-        </Container>
-        
-      </>    
+  return (
+    <>
+      <HeroSection />
+      <Features />
+    </>
   );
 };
 

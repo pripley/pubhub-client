@@ -71,7 +71,7 @@ class BeerEdit extends Component {
     const { name, rating, servingStyle, note } = this.state;
     return (
       <>
-        <Link to="" onClick={this.handleShow}>Update</Link>
+        <Link className="small weight-bold" to="" onClick={this.handleShow}>Update</Link>
 
         <Modal isOpen={this.state.show} toggle={this.handleClose}>
           <ModalHeader>Update Your Check-In</ModalHeader>
