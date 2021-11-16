@@ -33,7 +33,7 @@ class Search extends Component {
       );
     }
     return (
-      <div>
+      <>
         <Row>
           <Col>
             <Input
@@ -49,7 +49,7 @@ class Search extends Component {
             <Button onClick={this.handleFetch}>Search</Button>
           </Col>
         </Row>
-      </div>
+      </>
     );
   }
 }
