@@ -51,7 +51,7 @@ class Signup extends Component {
       <div className="app flex-row align-items-center">
         <Container>
           <Row className="justify-content-center">
-            <Col md="9" lg="7" xl="6">
+            <Col md="9" lg="7" xl="4">
               <Form>
               <h1>Sign up</h1>    
                 <InputGroup className="mb-3">
