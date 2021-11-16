@@ -11,7 +11,7 @@ class RecentActivity extends Component {
     const { token } = this.props;
     return (
       <div>
-        <h2 className="title">Your Recent Activity</h2>
+        <h4 className="weight-bold mb-3">Your Recent Check-Ins</h4>
         <BeerGet token={token} />
       </div>
     );
