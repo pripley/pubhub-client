@@ -1,21 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700;900&display=swap");
 
-html, body { height: 100% }
-
+html,
+body {
+  height: 100%;
+}
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color:rgb(46, 46, 46)
+  color: rgb(46, 46, 46);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -27,15 +29,22 @@ code {
 }
 
 .hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../src/assets/images/brewery_hero2.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.4)),
+    url("../src/assets/images/brewery_hero2.jpg");
   background-size: cover;
   /* min-height: 40rem; */
   /* background-color: black; */
   /* opacity: .2; */
 }
 
-.hero .container {
-  min-height: 40rem;
+.hero .hero-search{
+  min-height: 32rem;
+  flex-direction: column
+}
+
+.hero .container img {  
+  border-radius: 0;
+  max-width: 20rem;
 }
 
 /* Fonts */
@@ -51,11 +60,11 @@ a:hover {
 
 /* Text Sizes */
 h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 3rem;
   font-weight: 600;
   margin: 2rem 0;
-  color:rgb(27, 27, 27)
+  color: rgb(27, 27, 27);
 }
 
 h2.title {
@@ -77,8 +86,24 @@ h5 {
   font-weight: 500;
 }
 
+.small {
+  font-size: 0.8rem;
+}
+
 .text_white {
-  color:white
+  color: white;
+}
+
+.text-red {
+  color: rgb(175, 0, 0);
+}
+
+a.text-red {
+  color: rgb(201, 0, 0);
+}
+
+a.text-red:hover {
+  color: rgb(126, 0, 0);
 }
 
 .weight-bold {
@@ -88,14 +113,20 @@ h5 {
 .center {
   display: flex;
   justify-content: center;
-  align-items: center;   
+  align-items: center;
 }
 
 .form-control:focus {
   background-color: #fff;
   border-color: #ebebeb;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgb(192 192 192 / 25%)
+  box-shadow: 0 0 0 0.25rem rgb(192 192 192 / 25%);
+}
+
+/* Cards */
+
+.card {
+  border-radius: 0.75rem;
 }
 
 /* Modals */
@@ -117,21 +148,23 @@ h5 {
 .search {
   width: 40rem;
   border: none;
-  padding: .5rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   height: 2.75rem;
-  border-radius: .75rem;
+  /* border-radius: 0.75rem; */
+  border-radius: 0.5rem;
   font-weight: bold;
 }
 
 .search-container {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../src/assets/images/search_background.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../src/assets/images/search_background.jpg");
   background-size: cover;
   background-position: center 20%;
   padding: 3rem;
 }
 
 .search-container .search {
-  padding: .5rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   height: 2.75rem;
 }
 
@@ -145,26 +178,29 @@ h5 {
 }
 
 .result:first-child {
-  margin-top: 3rem
+  margin-top: 3rem;
 }
 
 /* Buttons */
 
 .btn {
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
   height: 2.75rem;
   border: none;
-  border-radius: 3rem;
+  /* border-radius: 3rem; */
+  border-radius: 0.5rem;
   font-weight: bold;
 }
 
 .btn-secondary {
-  background-color:rgb(235, 176, 14);
+  background-color: rgb(235, 176, 14);
 }
 
 .btn-secondary:hover {
-  background-color:rgb(177, 133, 11)
+  background-color: rgb(177, 133, 11);
 }
+
+/* Navbar */
 
 .navbar {
   background-color: black;
@@ -174,25 +210,65 @@ h5 {
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
-  margin: 0 1rem
-
+  margin: 0 1rem;
 }
 
 .nav-link {
-  color:rgb(235, 176, 14);
-  font-weight: bold
+  color: rgb(235, 176, 14);
+  font-weight: bold;
 }
 
-.nav-link:hover, .nav-link:focus {
-  color:rgb(177, 133, 11)
+.nav-link:hover,
+.nav-link:focus {
+  color: rgb(177, 133, 11);
 }
 
+.navbar-brand img {
+  border-radius: 0;
+  max-width: 8rem;
+  max-height: 15rem;
+}
+
+.three-dots:after {
+  cursor: pointer;
+  color: rgb(235, 176, 14);
+  content: "\2807";
+  font-size: 20px;
+  padding: 0 5px;
+}
+
+.navbar .dropdown-menu {
+  min-width: 10rem;
+  right: 0;
+  background-color: black;
+  color: rgb(235, 176, 14);
+  /* text-align: end; */
+}
+
+.navbar .dropdown-item {
+  color: rgb(235, 176, 14);
+}
+
+.navbar .dropdown-item:focus,
+.navbar .dropdown-item:hover {
+  color: rgb(177, 133, 11);
+  background-color: #2c2c2c;
+}
+
+.navbar .dropdown-toggle::after {
+  margin-left: 0.8rem;
+}
+
+.dropdown-menu {
+  min-width: 5rem;
+  right: 0;
+}
 
 /* Footer */
 
 footer {
   background-color: #dbdbdb;
-  padding: 2rem 0 1rem
+  padding: 2rem 0 1rem;
 }
 
 /* .footer-container {
@@ -206,40 +282,80 @@ footer {
   background-color: #ebebeb;
   min-height: 4rem;
   padding: 1rem;
-  color:rgba(161, 161, 161, 0.6);
+  color: rgba(161, 161, 161, 0.6);
   font-size: 3rem;
   font-weight: bold;
   margin-top: 3rem;
 }
 
-/* Home Page */
+/* Landing Page */
 
-.beer-activity{  
-  padding-top: 1rem;
-  border-top: 1px solid #bfbfc7;
+.features .fa-bookmark{
+  margin-top: 0rem;  
 }
 
+/* Home Page */
+
+.beer-activity {
+  padding-top: 1rem;
+  border-top: 1px solid #dfdfdf;
+}
 
 /* Brewery Page */
 
 .brewery-beer-activity-container {
-  margin-top: 4rem
+  margin-top: 4rem;
 }
 
-.brewery-beer-activity{    
+.brewery-beer-activity {
   padding-top: 1rem;
+  /* border-top: 1px solid #bfbfc7; */
+}
+
+.brewery-beer-activity:first-child {
   border-top: 1px solid #bfbfc7;
 }
 
+.brewery-beer-activity img {
+  width: 3rem;
+}
+
+.btn.favorite {
+  background: none; 
+  padding: 0;
+  height: 0;
+  border: 0
+}
+
+.btn.favorite:focus {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
 
 /* View User */
 
-img { 
-  border-radius: 50%; 
+img {
+  border-radius: 50%;
   max-width: 15rem;
   max-height: 15rem;
 }
 
 
+/* Font Icons */
+
+[class*="fa"] {   
+  font-size: 2rem; 
+  color: rgb(235, 176, 14);
+}
+
+.card [class*="fa"] {   
+  font-size: 1.2rem;   
+}
+
+.fa-bookmark{
+  margin-top: 2rem;
+  font-size: 1.8rem;
+}
 
 
