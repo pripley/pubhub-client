@@ -1,10 +1,30 @@
-# Getting Started with Create React App
+
+# BrewHub - Client
+
+BrewHub allows customers to search and save their favorite breweries.  They can keep a running list of the beers they have tried at each brewery and what they thought by rating and giving reviews.  They can also see the beers other customers have tried along with their ratings and comments. 
+
+
+![Homepage](https://pripley.github.io/assets/brewpub-screenshot.png)
+
+
+## Wireframes
+
+Wireframes were created using [Wireframe CC](https://wireframe.cc/pro/pp/0f7d32f83483705)
+
+## Color Reference
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Links, Icons | ![#ebb00e](https://via.placeholder.com/10/ebb00e?text=+) #ebb00e |
+| Link Hover | ![#b1850b](https://via.placeholder.com/10/b1850b?text=+) #b1850b |
+| Background, Page Dividers | ![#a1a1a1](https://via.placeholder.com/10/a1a1a1?text=+) #a1a1a1 |
+| Footer | ![#dbdbdb](https://via.placeholder.com/10/dbdbdb?text=+) #dbdbdb |
+| Text | ![#2c2c2c](https://via.placeholder.com/10/2c2c2c?text=+) #2c2c2c |
+
+
+## Run Locally
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
@@ -39,32 +59,19 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Documentation
 
-### Code Splitting
+- [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Analyzing the Bundle Size
+- [React-Boostrap](https://react-bootstrap.github.io/getting-started/introduction)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- [Font Awesome - React](https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react)
+  
+## Authors
 
-### Making a Progressive Web App
+- [@pripley](https://github.com/pripley)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
